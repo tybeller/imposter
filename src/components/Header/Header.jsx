@@ -7,7 +7,7 @@ function Header() {
             <ul className='header-list'>
                 <Link to='/' className='link'><li>Home</li></Link>
                 <Link to='/Create' className='link'><li>Create a Crewmate</li></Link>
-                <Link to='/' className='link'><li>Crewmate Gallery</li></Link>
+                <Link to='/Gallery' className='link'><li>Crewmate Gallery</li></Link>
             </ul>
         </div>
     )
