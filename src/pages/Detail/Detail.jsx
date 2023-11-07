@@ -22,6 +22,9 @@ const Detail = () => {
             setCrewmate(data);
             console.log(data)
             setLoading(false);
+            setName(data[0].name)
+            setSpeed(data[0].speed)
+            setColor(data[0].color)
         }
         fetchCrewmate();
     }, [editing]);
@@ -91,6 +94,7 @@ const Detail = () => {
                             <span className="button-span">
                                 <button onClick={() => setEditing(true)}>Edit</button>
                                 <button onClick={handleDelete}>Delete</button>
+                                <button onClick={() => navigate('/gallery')}>Back</button>
                             </span>
                         </div>
                     }

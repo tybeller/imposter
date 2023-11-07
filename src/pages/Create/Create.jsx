@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { supabase } from '../../client';
 import { useNavigate } from 'react-router-dom';
 import './Create.css';
+import Crewmate from '../../assets/Crewmate';
 
 const Create = () => {
   const [name, setName] = useState('');
@@ -17,12 +18,13 @@ const Create = () => {
         .insert({name: name, speed: speed, color: color})
         .select();
 
-    navigate('/');
+    navigate('/gallery');
   };
 
   return (
     <>
         <h1>Create a Crewmate</h1>
+        <Crewmate color={color} />
         <div className="creator-container">
             <form onSubmit={handleSubmit}>
             <label >

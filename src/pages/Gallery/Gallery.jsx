@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { supabase } from "../../client"
+import Crewmate from "../../assets/Crewmate"
 import './Gallery.css'
 
 const Gallery = () => {
@@ -25,6 +26,7 @@ const Gallery = () => {
                 <h2>{crewmate.name}</h2>
                 <h3>Speed: {crewmate.speed}</h3>
                 <h3>Color: {crewmate.color}</h3>
+                <Crewmate className="crewmate" color={crewmate.color}/>
             </div>
         )
     })
