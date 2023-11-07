@@ -22,9 +22,9 @@ const Gallery = () => {
     const crewmate = crewmates.map((crewmate) => {
         return (
             <div className="crewmate-container" key={crewmate.id} onClick={() => handleClick(crewmate.id)}>
-                <h3>{crewmate.name}</h3>
-                <h3>{crewmate.speed}</h3>
-                <h3>{crewmate.color}</h3>
+                <h2>{crewmate.name}</h2>
+                <h3>Speed: {crewmate.speed}</h3>
+                <h3>Color: {crewmate.color}</h3>
             </div>
         )
     })
