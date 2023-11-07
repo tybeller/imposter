@@ -46,3 +46,16 @@ select{
 .showing{
     display: block;
 }
+
+.whole-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.spacer {
+    height: 0rem;
+    width: 25em;
+}

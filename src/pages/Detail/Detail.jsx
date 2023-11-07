@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "../../client";
 import { useParams, useNavigate } from "react-router-dom";
 import './Detail.css'
+import Crewmate from "../../assets/Crewmate";
 
 const Detail = () => {
     const { id } = useParams()
@@ -56,51 +57,59 @@ const Detail = () => {
     }
 
     return (
-        <>
+        <div className="whole-page">
             <h1>Detail</h1>
-            { loading ? 
-                <div className="detail-container">
-                    <h3>Loading...</h3>          
-                </div>
-            :
+            
+            <div className="whole-detail">
                 <div>
-                    { editing ? 
-                        <div className='edit detail-container'>
-                            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                            <input type="number" step="0.01" value={speed} onChange={(event) => setSpeed(parseFloat(event.target.value))} />
-                            <select value={color} onChange={(event) => setColor(event.target.value)}>
-                                <option value="">--Please choose a color--</option>
-                                <option value="red">Red</option>
-                                <option value="blue">Blue</option>
-                                <option value="green">Green</option>
-                                <option value="yellow">Yellow</option>
-                                <option value="orange">Orange</option>
-                                <option value="black">Black</option>
-                                <option value="white">White</option>
-                                <option value="purple">Purple</option>
-                                <option value="cyan">Cyan</option>
-                            </select>
-                            <span className="button-span">
-                                <button onClick={handleEdit}>Save</button>
-                                <button onClick={() => setEditing(false)}>Cancel</button>
-                            </span>
+                    <Crewmate color={color} />
+                </div>
+                <div>
+                    { loading ? 
+                        <div className="detail-container">
+                            <h3>Loading...</h3>          
                         </div>
                     :
-                        <div className="showing detail-container">
-                            <h2>{crewmate[0].name}</h2>
-                            <h3>Speed: {crewmate[0].speed}</h3>
-                            <h3>Color: {crewmate[0].color}</h3>
-                            <br/>
-                            <span className="button-span">
-                                <button onClick={() => setEditing(true)}>Edit</button>
-                                <button onClick={handleDelete}>Delete</button>
-                                <button onClick={() => navigate('/gallery')}>Back</button>
-                            </span>
-                        </div>
+                        <div>
+                            { editing ? 
+                                <div className='edit detail-container'>
+                                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                                    <input type="number" step="0.01" value={speed} onChange={(event) => setSpeed(parseFloat(event.target.value))} />
+                                    <select value={color} onChange={(event) => setColor(event.target.value)}>
+                                        <option value="">--Please choose a color--</option>
+                                        <option value="red">Red</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="green">Green</option>
+                                        <option value="yellow">Yellow</option>
+                                        <option value="orange">Orange</option>
+                                        <option value="black">Black</option>
+                                        <option value="white">White</option>
+                                        <option value="purple">Purple</option>
+                                        <option value="cyan">Cyan</option>
+                                    </select>
+                                    <span className="button-span">
+                                        <button onClick={handleEdit}>Save</button>
+                                        <button onClick={() => setEditing(false)}>Cancel</button>
+                                    </span>
+                                </div>
+                            :
+                                <div className="showing detail-container">
+                                    <h2>{crewmate[0].name}</h2>
+                                    <h3>Speed: {crewmate[0].speed}</h3>
+                                    <h3>Color: {crewmate[0].color}</h3>
+                                    <div className="spacer"/>
+                                    <span className="button-span">
+                                        <button onClick={() => setEditing(true)}>Edit</button>
+                                        <button onClick={handleDelete}>Delete</button>
+                                        <button onClick={() => navigate('/gallery')}>Back</button>
+                                    </span>
+                                </div>
+                            }
+                        </div> 
                     }
-                </div> 
-            }
-        </>
+                </div>
+            </div>
+        </div>
     )
 }
 
